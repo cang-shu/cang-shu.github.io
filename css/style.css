@@ -216,7 +216,7 @@ p {
 .work-info h5 span.glyphicon {
     font-size: 0.9em;
     color: #fff;
-    background: #008B8B;
+    background: #828b00;
     padding: 1em;
     -webkit-border-radius: 70%;
     -moz-border-radius: 70%;
@@ -230,6 +230,7 @@ p {
     -o-transform: scale(1);
     -ms-transform: scale(1);
 }
+/*表格内容位置*/
 .work-right h5 span.glyphicon {
     margin-right: 5em;
     margin-left: -8em;
