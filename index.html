@@ -19,6 +19,8 @@
 <!--js-->
 <script src="js/jquery-1.11.1.min.js"></script> 
 <script src="js/three.js"></script>
+<script  src="js/OBJLoader.js"></script>
+<script  src="js/MTLLoader.js"></script>
 <!-- //js -->
 <!--web-fonts-->
 <!--<link href='//fonts.googleapis.com/css?family=Overlock:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
@@ -664,20 +666,27 @@
 							scene.add(light);
 						}
 			
-						var cube;
+						var object;
 						function initObject() {
 			
-							var texture = THREE.ImageUtils.loadTexture("images/g12.jpg",null,function(t)
-{
-});
-var material = new THREE.MeshBasicMaterial({map:texture});
-                var geometry = new THREE.CubeGeometry(1,1,1);
-       
-         cube = new THREE.Mesh(geometry, material); scene.add(cube);
+							new THREE.MTLLoader()
+					.setPath( './obj/' )
+					.load( 'PM3D_Sphere3D7_1.mtl', function ( materials ) {
+						materials.preload();
+						new THREE.OBJLoader()
+							.setMaterials( materials )
+							.setPath( './obj/' )
+							.load( 'PM3D_Sphere3D7_1.obj', function ( object ) {		
+								object.rotation.y=94.2;
+								
+								object.scale.set(0.3,0.3,0.3)		
+								scene.add( object );
+							});
+					} );
 						}
 						function render()
 						{
-							cube.rotation.y -=0.01;
+							
 							renderer.clear();
 							renderer.render(scene, camera);
 							requestAnimationFrame(render);
