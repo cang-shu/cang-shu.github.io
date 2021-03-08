@@ -669,25 +669,22 @@
 						var object;
 						function initObject() {
 			
-							new THREE.MTLLoader()
-					.setPath( './obj/' )
-					.load( 'PM3D_Sphere3D7_1.mtl', function ( materials ) {
-						materials.preload();
-						new THREE.OBJLoader()
-							.setMaterials( materials )
-							.setPath( './obj/' )
-							.load( 'PM3D_Sphere3D7_1.obj', function ( object ) {		
-								object.rotation.y=94.2;
-								
-								object.scale.set(0.3,0.3,0.3)		
-								scene.add( object );
-							});
-					} );
+							var js_loader = new THREE.JSONLoader();
+							object = new THREE.Object3D();
+   js_loader.load('./obj/car.js', function(geometry, materials) {
+	 var material = new THREE.MultiMaterial(materials);    // 多个纹理
+	  mesh = new THREE.Mesh(geometry, material);
+	 mesh.scale.set(0.3,0.3,0.3)
+	 object.add(mesh); 		
+	 scene.add(object);
+
+ });
 						}
 						function render()
 						{
-							
+							object.rotation.y -=0.01;
 							renderer.clear();
+							
 							renderer.render(scene, camera);
 							requestAnimationFrame(render);
 						}
