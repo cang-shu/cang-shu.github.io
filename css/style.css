@@ -188,7 +188,7 @@ p {
 .work-info h4 {
     font-size: 1.2em;
     background: darkcyan;
-    display: inline-block;
+    display: inline;
     padding: .6em 1.2em;
     color: #fff;
 	position:relative;
@@ -206,11 +206,11 @@ p {
     border-color: transparent transparent transparent rgb(0, 139, 139);
 }
 .work-info h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #F7E612;
     margin-bottom: .5em;
     border: 1px solid #F7E612;
-    display: inline-block;
+    display: inline;
     padding: 0 1.2em;
 }
 .work-info h5 span.glyphicon {
