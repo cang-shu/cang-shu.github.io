@@ -209,8 +209,8 @@ p {
     font-size: 1.2em;
     color: #F7E612;
     margin-bottom: .5em;
-    border: 1px solid #F7E612;
-    display: inline;
+    /* border: 1px solid #F7E612;
+    display: inline; */
     padding: 0 1.2em;
 }
 .work-info h5 span.glyphicon {
